@@ -11,7 +11,7 @@ class Account::PostsController < ApplicationController
     @post.user = current_user
     @post.blog = current_user.blog
 
-    if @post.save
+    if @post.save!
       redirect_to dashboard_path
     else
       render :new
@@ -37,7 +37,7 @@ class Account::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description)
+    params.require(:post).permit(:title, :description, :category_id)
   end
 
   def find_account_post
