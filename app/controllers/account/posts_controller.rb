@@ -1,7 +1,7 @@
 class Account::PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_account_post, :only => [:edit, :update, :destroy]
-  before_action :check_account_post_permission, :only => [:edit, :update, :destroy]
+  before_action :find_account_post, :only => [:edit, :update, :destroy, :draft, :publish, :hide]
+  before_action :check_account_post_permission, :only => [:edit, :update, :destroy, :draft, :publish, :hide]
 
   def new
     @post = Post.new
@@ -35,10 +35,25 @@ class Account::PostsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def draft
+    @post.draft!
+    redirect_to :back
+  end
+
+  def publish
+    @post.publish!
+    redirect_to :back
+  end
+
+  def hide
+    @post.hide!
+    redirect_to :back
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :category_id)
+    params.require(:post).permit(:title, :description, :category_id, :status)
   end
 
   def find_account_post

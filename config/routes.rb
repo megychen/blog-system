@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   get "/dashboard"  => "dashboard#index", :as => :dashboard
 
   namespace :account do
-    resources :posts
+    resources :posts do
+      member do
+        post :draft
+        post :publish
+        post :hide
+      end
+    end
     resources :blogs do
       resources :categories
     end

@@ -2,5 +2,13 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.association :category %>
-  <%= f.submit "Save", class: "btn btn-info" %>
+  <%= f.label :status %>
+  <% Post::STATUS.each do |status| %>
+    <label>
+      <%= f.radio_button :status, status %>
+      <%= t(status, :scope => "post.status") %>
+    </label>
+  <% end %>
+
+  <%= f.submit "Save", class: "btn btn-info pull-right" %>
 <% end %>

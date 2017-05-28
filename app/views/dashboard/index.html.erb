@@ -7,16 +7,16 @@
 <table class="table table-hover">
   <% @posts.each do |post| %>
     <tr>
-      <td><%= link_to(post.title, edit_account_post_path(post)) %></td>
+      <td><%= render_post_status(post) %>  <%= link_to(post.title, edit_account_post_path(post)) %></td>
       <td><%= post.created_at %></td>
       <td class="dropdown">
         <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Options
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-          <li><a href="#">HTML</a></li>
-          <li><a href="#">CSS</a></li>
-          <li><a href="#">JavaScript</a></li>
+          <%= render "status_option", post: post %>
+          <li class="divider"></li>
+          <li><%= link_to("Delete Post", account_post_path(post), :method => :delete, data: { confirm: "Are you sure?" }) %></li>
         </ul>
       </td>
     </tr>

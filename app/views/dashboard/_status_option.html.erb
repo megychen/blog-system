@@ -1,0 +1,11 @@
+<% case post.status %>
+<% when "draft" %>
+  <li><%= link_to("Publish", publish_account_post_path(post), :method => :post) %></li>
+  <li><%= link_to("Set Private", hide_account_post_path(post), :method => :post) %></li>
+<% when "public" %>
+  <li><%= link_to("Make Draft", draft_account_post_path(post), :method => :post) %></li>
+  <li><%= link_to("Set Private", hide_account_post_path(post), :method => :post) %></li>
+<% when "private" %>
+  <li><%= link_to("Make Draft", draft_account_post_path(post), :method => :post) %></li>
+  <li><%= link_to("Publish", publish_account_post_path(post), :method => :post) %></li>
+<% end %>
