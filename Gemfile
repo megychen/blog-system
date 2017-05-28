@@ -40,6 +40,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'font-awesome-rails'
+gem 'ransack'
 
 
 group :development, :test do

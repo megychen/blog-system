@@ -1,4 +1,4 @@
-<div class="btn-group">
+<div class="btn-group col-md-4">
   <span>
     <%= link_to(content_tag(:span, " New Post", :class => "fa fa-plus"), new_account_post_path, class: "btn btn-default btn-xs") %>
   </span>
@@ -15,6 +15,20 @@
   </span>
 
   <span> <%= link_to("All Posts", dashboard_path, class: "btn btn-default btn-xs") %> </span>
+
+</div>
+
+<div class="search-bar col-md-4">
+  <%= form_tag dashboard_search_path, :method => :get do %>
+    <div class="input-group">
+      <input type="text" name="q" class="form-control" value="<%= params[:q] %>" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-default">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+      </span>
+    </div>
+  <% end %>
 </div>
 
 
@@ -27,20 +41,5 @@
 </br></br>
 
 <table class="table table-hover">
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%= render_post_status(post) %>  <%= link_to(post.title, edit_account_post_path(post)) %></td>
-      <td><%= post.created_at %></td>
-      <td class="dropdown">
-        <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Options
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <%= render "status_option", post: post %>
-          <li class="divider"></li>
-          <li><%= link_to("Delete Post", account_post_path(post), :method => :delete, data: { confirm: "Are you sure?" }) %></li>
-        </ul>
-      </td>
-    </tr>
-  <% end %>
+  <%= render :partial => "post_item", :collection => @posts, :as => :post %>
 </table>

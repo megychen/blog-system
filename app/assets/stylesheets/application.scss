@@ -18,3 +18,16 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
+
+ .col-md-4 {
+   padding: 0;
+ }
+
+ .search-bar {
+    margin-top: -5px;
+    width: 240px;
+    display: inline-block;
+    .form-control  {
+      padding: 2px 2px;
+    }
+ }
