@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :posts
+    resources :blogs
   end
 end
