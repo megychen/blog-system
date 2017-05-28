@@ -1,5 +1,27 @@
-<div class="pull-right">
-  <%= link_to("New Post", new_account_post_path, class: "btn btn-default") %>
+<div class="btn-group">
+  <span>
+    <%= link_to(content_tag(:span, " New Post", :class => "fa fa-plus"), new_account_post_path, class: "btn btn-default btn-xs") %>
+  </span>
+
+  <span class="dropdown">
+    <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Filter
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <% current_user.blog.categories.each do |category| %>
+        <li> <%= link_to(category.name, dashboard_path(category: category.name)) %> </li>
+      <% end %>
+    </ul>
+  </span>
+
+  <span> <%= link_to("All Posts", dashboard_path, class: "btn btn-default btn-xs") %> </span>
+</div>
+
+
+
+<div class="btn-group pull-right">
+  <%= link_to("Blog Settings", edit_account_blog_path(current_user.blog), class: "btn btn-default btn-xs") %>
+  <%= link_to("Categories", account_blog_categories_path(current_user.blog), class: "btn btn-default btn-xs") %>
 </div>
 
 </br></br>

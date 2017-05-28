@@ -1,6 +1,7 @@
 class Account::BlogsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_account_blog
+  layout "admin"
 
   def edit
   end

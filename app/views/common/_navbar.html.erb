@@ -1,7 +1,11 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">Blogger</a>
+        <a class="navbar-brand" href="/dashboard"> Blogger
+          <% if current_user %>
+            > <%= current_user.blog.title %>
+          <% end %>
+        </a>
       </div>
 
       <div class="collapse navbar-collapse">

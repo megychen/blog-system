@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 20170528052155) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "image"
     t.string   "avatar"
     t.string   "user_name"
     t.index ["email"], name: "index_users_on_email", unique: true

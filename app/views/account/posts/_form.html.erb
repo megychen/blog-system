@@ -1,14 +1,18 @@
 <%= simple_form_for [:account, @post] do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.association :category %>
-  <%= f.label :status %>
-  <% Post::STATUS.each do |status| %>
-    <label>
-      <%= f.radio_button :status, status %>
-      <%= t(status, :scope => "post.status") %>
-    </label>
-  <% end %>
+  <%= f.select :category_id, current_user.blog.categories.all.map{ |c| [c.name, c.id] }, {}, :class => "form-control" %>
+
+  <%= f.label :status, label: "Change State:" %>
+  <br>
+  <div class="btn-group" data-toggle="buttons">
+    <% Post::STATUS.each do |status| %>
+      <label class="btn btn-default <%= (status == f.object.status)? 'active' : '' %>">
+        <%= f.radio_button :status, status %>
+        <%= t(status, :scope => "post.status") %>
+      </label>
+    <% end %>
+  </div>
 
   <%= f.submit "Save", class: "btn btn-info pull-right" %>
 <% end %>

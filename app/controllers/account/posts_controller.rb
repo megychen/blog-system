@@ -3,6 +3,8 @@ class Account::PostsController < ApplicationController
   before_action :find_account_post, :only => [:edit, :update, :destroy, :draft, :publish, :hide]
   before_action :check_account_post_permission, :only => [:edit, :update, :destroy, :draft, :publish, :hide]
 
+  layout "admin"
+
   def new
     @post = Post.new
   end
