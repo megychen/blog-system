@@ -12,7 +12,7 @@ class Account::PostsController < ApplicationController
     @post.blog = current_user.blog
 
     if @post.save
-      redirect_to ##
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -23,7 +23,7 @@ class Account::PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to ##
+      redirect_to dashboard_path
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class Account::PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to ##
+    redirect_to dashboard_path
   end
 
   private

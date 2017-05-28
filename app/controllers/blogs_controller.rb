@@ -1,10 +1,5 @@
 class BlogsController < ApplicationController
   def index
-    @blog = Blog.find_by_title(params[:blog])
-    if @blog.blank?
-      redirect_to root_path, notice: "没有找到相关的博客"
-    else
-      @posts = @blog.posts
-    end
+    @posts = current_user.blog.posts
   end
 end
