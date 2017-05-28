@@ -1,6 +1,6 @@
 class Account::BlogsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_account_blog, :only => [:edit, :update]
+  before_action :find_account_blog
 
   def edit
   end
@@ -21,5 +21,9 @@ class Account::BlogsController < ApplicationController
 
   def find_account_blog
     @blog = Blog.find(params[:id])
+    unless @blog.user == current_user
+      flash[:warning] = "You have no permission"
+      redirect_to dashboard_path
+    end
   end
 end

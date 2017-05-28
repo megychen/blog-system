@@ -1,6 +1,7 @@
 class Account::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_account_post, :only => [:edit, :update, :destroy]
+  before_action :check_account_post_permission, :only => [:edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -42,5 +43,12 @@ class Account::PostsController < ApplicationController
 
   def find_account_post
     @post = Post.find(params[:id])
+  end
+
+  def check_account_post_permission
+    unless current_user == @post.user
+      flash["warning"] = "You have no permission"
+      redirect_to dashboard_path
+    end
   end
 end
