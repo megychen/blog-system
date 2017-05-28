@@ -1,6 +1,6 @@
 <%= simple_form_for [:account, @post] do |f| %>
   <%= f.input :title %>
-  <%= f.input :description %>
+  <%= f.input :description, as: :ckeditor %>
   <%= f.select :category_id, current_user.blog.categories.all.map{ |c| [c.name, c.id] }, {}, :class => "form-control" %>
 
   <%= f.label :status, label: "Change State:" %>

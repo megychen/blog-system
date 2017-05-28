@@ -41,6 +41,7 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'font-awesome-rails'
 gem 'ransack'
+gem 'ckeditor'
 
 
 group :development, :test do
