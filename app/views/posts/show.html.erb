@@ -1,0 +1,4 @@
+<h4><%= link_to(@post.title, post_path(@post)) %></h4>
+<hr>
+<p><%= @post.description %></p>
+<p><%= time_ago_in_words(@post.created_at) %> ago</p>

@@ -1,1 +1,8 @@
-<p>This is <%= @blog.title %>'s blog</p>
+<h3>This is <%= @blog.title %>'s blog</h3>
+
+<% @posts.each do |post| %>
+  <h4><%= link_to(post.title, post_path(post)) %></h4>
+  <p><%= post.description %></p>
+  <p><%= time_ago_in_words(post.created_at) %> ago</p>
+  <hr>
+<% end %>
