@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require ckeditor/init
 //= require disqus_rails
+//= require social-share-button
+//= require social-share-button/wechat
 //= require_tree .

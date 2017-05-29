@@ -44,6 +44,7 @@ gem 'ransack'
 gem 'ckeditor'
 gem 'will_paginate-bootstrap'
 gem 'disqus_rails'
+gem 'social-share-button'
 
 
 group :development, :test do
