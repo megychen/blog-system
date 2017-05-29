@@ -43,6 +43,7 @@ gem 'font-awesome-rails'
 gem 'ransack'
 gem 'ckeditor'
 gem 'will_paginate-bootstrap'
+gem 'disqus_rails'
 
 
 group :development, :test do
