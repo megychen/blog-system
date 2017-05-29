@@ -3,7 +3,7 @@
 
   <div class="navbar-header">
     <% if params[:controller] == "blogs" %>
-      <% if params[:action] == "show" %>
+      <% if params[:action] == "show" or  params[:action] == "archives" %>
         <a class="navbar-brand" href="/"> Blogger | <%= Blog.find(params[:id]).title %> </a>
       <% else %>
         <a class="navbar-brand" href="/"> Blogger </a>

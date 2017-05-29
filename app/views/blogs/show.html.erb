@@ -1,3 +1,9 @@
+<div class="pull-right">
+  <%= link_to archives_blog_path(@blog) do %>
+    <i class="fa fa-archive"> ARCHIVE </i>
+  <% end %>
+</div>
+
 <% @posts.each do |post| %>
   <div class="blog-posts">
     <h5 class="pull-right"><%= time_ago_in_words(post.created_at) %> ago</h5>
