@@ -42,6 +42,7 @@ gem 'carrierwave'
 gem 'font-awesome-rails'
 gem 'ransack'
 gem 'ckeditor'
+gem 'will_paginate-bootstrap'
 
 
 group :development, :test do

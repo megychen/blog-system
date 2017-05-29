@@ -1,17 +1,20 @@
 <nav class="navbar navbar-default" role="navigation">
 
+
   <div class="navbar-header">
-    <% if params[:controller] == "blogs" or params[:controller] == "posts" %>
+    <% if params[:controller] == "blogs" %>
       <% if params[:action] == "show" %>
-        <a class="navbar-brand" href="/"> Blogger | <%= @blog.user.user_name %> </a>
+        <a class="navbar-brand" href="/"> Blogger | <%= Blog.find(params[:id]).title %> </a>
       <% else %>
         <a class="navbar-brand" href="/"> Blogger </a>
       <% end %>
+    <% elsif params[:controller] == "posts" %>
+      <a class="navbar-brand" href="/"> Blogger | <%= Post.find(params[:id]).blog.title %> </a>
     <% else %>
       <a class="navbar-brand" href="/dashboard"> Blogger |
         <% if current_user %>
           <%= current_user.blog.title %>
-        <% end %>  
+        <% end %>
       </a>
     <% end %>
   </div>

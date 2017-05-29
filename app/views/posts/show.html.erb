@@ -1,4 +1,11 @@
-<h4><%= link_to(@post.title, post_path(@post)) %></h4>
+
+<h4><%= @post.title %></h4>
 <hr>
 <p><%= sanitize @post.description %></p>
-<p><%= time_ago_in_words(@post.created_at) %> ago</p>
+
+<div class="pull-right">
+  <%= link_to(content_tag(:i, " Back", class: "fa fa-arrow-left"), url_for(:back)) %>
+</div>
+<br>
+
+<p><i class="fa fa-clock-o" aria-hidden="true"></i> <%= @post.created_at.strftime("%Y-%m-%d") %></p>

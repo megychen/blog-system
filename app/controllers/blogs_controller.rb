@@ -5,6 +5,6 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find(params[:id])
-    @posts = @blog.posts.where(:status => "public")
+    @posts = @blog.posts.where(:status => "public").paginate(:page => params[:page], :per_page => 5)
   end
 end
