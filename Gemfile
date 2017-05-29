@@ -45,6 +45,7 @@ gem 'ckeditor'
 gem 'will_paginate-bootstrap'
 gem 'disqus_rails'
 gem 'social-share-button'
+gem 'acts_as_votable'
 
 
 group :development, :test do

@@ -1,4 +1,5 @@
 <%= simple_form_for [:account, @blog] do |f| %>
   <%= f.input :title %>
+  <%= f.input :description %>
   <%= f.submit "Submit", class: "btn btn-info" %>
 <% end %>

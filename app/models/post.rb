@@ -4,6 +4,8 @@ class Post < ApplicationRecord
   belongs_to :blog
   belongs_to :category, optional: true, counter_cache: true
 
+  acts_as_votable
+
   scope :recent, -> { order("created_at DESC") }
 
   STATUS = ["draft", "public", "private"]

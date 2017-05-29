@@ -7,7 +7,11 @@ Rails.application.routes.draw do
       get :archives
     end
   end
-  resources :posts
+  resources :posts do
+    member do
+      put "like", to: "posts#upvote"
+    end  
+  end
 
   get "/dashboard"  => "dashboard#index", :as => :dashboard
   get "/dashboard/search" => "dashboard#search", :as => :dashboard_search

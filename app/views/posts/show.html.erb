@@ -5,12 +5,14 @@
 <h4><%= @post.title %></h4>
 <hr>
 <p><%= sanitize @post.description %></p>
-
-<div class="pull-right">
-  <%= link_to(content_tag(:i, " Back", class: "fa fa-arrow-left"), url_for(:back)) %>
-</div>
 <br>
-
-<p><i class="fa fa-clock-o" aria-hidden="true"></i> <%= @post.created_at.strftime("%Y-%m-%d") %></p>
+<i class="fa fa-clock-o" aria-hidden="true"></i> <%= @post.created_at.strftime("%Y-%m-%d") %>
+<p class="pull-right">
+  <%= link_to like_post_path(@post), class: "btn btn-primary btn-xs", method: :put do %>
+    <i class="fa fa-thumbs-up"> like</i>
+    <%= @post.get_upvotes.size %>
+  <% end %>
+  <%= link_to(content_tag(:i, " Back", class: "fa fa-arrow-left"), url_for(:back)) %>
+</p>
 
 <%- disqus_thread %>
