@@ -1,6 +1,6 @@
 <tr>
   <td><%= render_post_status(post) %>  <%= link_to(post.title, edit_account_post_path(post)) %></td>
-  <td><%= post.created_at %></td>
+  <td><%= post.created_at.strftime("%Y-%m-%d %I:%M %p") %></td>
   <td class="dropdown">
     <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Options
       <span class="caret"></span>
