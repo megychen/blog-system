@@ -10,6 +10,11 @@
 
   <body>
     <div class="container-fluid">
+      <%= render "common/navbar" %>
+      <div class="pull-right">
+        <%= link_to("Dashboard", dashboard_path, class: "btn btn-default btn-xs") %>
+      </div>
+      <br>
       <%= yield %>
     </div>
 

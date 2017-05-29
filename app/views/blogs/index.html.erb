@@ -1,18 +1,6 @@
-<div class="pull-right">
-  <%= link_to("Dashboard", dashboard_path, class: "btn btn-default btn-xs") %>
-</div>
-<h2>This is <%= current_user.user_name %>'s blog</h2>
 
-<% @posts.each do |post| %>
-  <div class="blog-posts">
-    <h5 class="pull-right"><%= time_ago_in_words(post.created_at) %> ago</h5>
-    <h4><%= link_to(post.title, post_path(post)) %></h4>
-    <p><%= sanitize post.description %></p>
-    <hr>
-    <p class="pull-right">
-      <i class="fa fa-clock-o" aria-hidden="true"></i>
-      <%= post.created_at.strftime("%Y-%m-%d") %>
-    </p>
-  </div>
 
+<% @blogs.each do |blog| %>
+  <h3><%= link_to(blog.title, blog) %></h3>
+  <hr>
 <% end %>

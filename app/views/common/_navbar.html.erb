@@ -1,11 +1,19 @@
 <nav class="navbar navbar-default" role="navigation">
 
   <div class="navbar-header">
-    <a class="navbar-brand" href="/dashboard"> Blogger
-      <% if current_user %>
-        | <%= current_user.blog.title %>
+    <% if params[:controller] == "blogs" or params[:controller] == "posts" %>
+      <% if params[:action] == "show" %>
+        <a class="navbar-brand" href="/"> Blogger | <%= @blog.user.user_name %> </a>
+      <% else %>
+        <a class="navbar-brand" href="/"> Blogger </a>
       <% end %>
-    </a>
+    <% else %>
+      <a class="navbar-brand" href="/dashboard"> Blogger |
+        <% if current_user %>
+          <%= current_user.blog.title %>
+        <% end %>  
+      </a>
+    <% end %>
   </div>
 
   <div class="collapse navbar-collapse">
@@ -26,6 +34,6 @@
           </li>
           <% end %>
       </ul>
-  </div>    
+  </div>
 
 </nav>

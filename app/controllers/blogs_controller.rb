@@ -1,5 +1,10 @@
 class BlogsController < ApplicationController
   def index
-    @posts = current_user.blog.posts.where(:status => "public")
+    @blogs = Blog.all
+  end
+
+  def show
+    @blog = Blog.find(params[:id])
+    @posts = @blog.posts.where(:status => "public")
   end
 end
