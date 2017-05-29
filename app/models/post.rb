@@ -22,4 +22,8 @@ class Post < ApplicationRecord
   def hide!
     self.update(:status => "private")
   end
+
+  def to_param
+    "#{self.id}-#{self.title}"
+  end
 end
