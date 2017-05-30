@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :posts do
     member do
       put "like", to: "posts#upvote"
-    end  
+    end
   end
 
   get "/dashboard"  => "dashboard#index", :as => :dashboard
@@ -22,6 +22,9 @@ Rails.application.routes.draw do
         post :draft
         post :publish
         post :hide
+      end
+      collection do
+        post :bulk_delete
       end
     end
     resources :blogs do
