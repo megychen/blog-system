@@ -1,21 +1,9 @@
 <nav class="navbar navbar-default" role="navigation">
-
-
   <div class="navbar-header">
-    <% if params[:controller] == "blogs" %>
-      <% if params[:action] == "show" or  params[:action] == "archives" %>
-        <a class="navbar-brand" href="/"> Blogger | <%= Blog.find(params[:id]).title %> </a>
-      <% else %>
-        <a class="navbar-brand" href="/"> Blogger </a>
-      <% end %>
-    <% elsif params[:controller] == "posts" %>
-      <a class="navbar-brand" href="/"> Blogger | <%= Post.find(params[:id]).blog.title %> </a>
+    <% if params[:controller] == "dashboard" or params[:controller] == "account/blogs" or params[:controller] == "account/posts" or params[:controller] == "account/categories" %>
+      <a class="navbar-brand" href="/dashboard"> Blogger | <%= current_user.blog.title %> </a>
     <% else %>
-      <a class="navbar-brand" href="/dashboard"> Blogger |
-        <% if current_user %>
-          <%= current_user.blog.title %>
-        <% end %>
-      </a>
+      <a class="navbar-brand" href="/"> Blogger </a>
     <% end %>
   </div>
 
@@ -38,5 +26,4 @@
           <% end %>
       </ul>
   </div>
-
 </nav>

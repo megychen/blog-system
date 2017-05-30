@@ -1,4 +1,6 @@
-<%= simple_form_for [:account, @blog, @category] do |f| %>
-  <%= f.input :name, label: "", placeholder: "Category Name" %>
-  <%= f.submit "Add", class: "btn btn-info" %>
-<% end %>
+<div class="col-md-6 col-md-offset-3">
+  <%= simple_form_for [:account, @blog, @category] do |f| %>
+    <%= f.input :name, label: "", placeholder: "Category Name" %>
+    <%= f.submit "Add", class: "btn btn-info" %>
+  <% end %>
+</div>

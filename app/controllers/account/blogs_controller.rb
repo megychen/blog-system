@@ -17,7 +17,7 @@ class Account::BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:title)
+    params.require(:blog).permit(:title, :description)
   end
 
   def find_account_blog

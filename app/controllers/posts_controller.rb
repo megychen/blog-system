@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
+  layout "blog"
+
   def show
     @post = Post.find(params[:id])
+    @blog = @post.blog
   end
 
   def upvote

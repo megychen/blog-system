@@ -1,26 +1,28 @@
-<%= simple_form_for [:account, @post] do |f| %>
-  <div class="row account-posts-form">
-    <div class="col-md-10">
-      <%= f.input :title %>
-      <%= f.input :description, as: :ckeditor %>
-    </div>
-
-    <div class="col-md-2 fixed-button">
-      <%= f.label :category %>
-      <%= f.select :category_id, current_user.blog.categories.all.map{ |c| [c.name, c.id] }, {}, :class => "form-control" %>
-      <br>
-      <%= f.label :status, label: "Change Status:" %>
-      <br>
-      <div class="btn-group" data-toggle="buttons">
-        <% Post::STATUS.each do |status| %>
-          <label class="btn btn-default btn-xs <%= (status == f.object.status)? 'active' : '' %>">
-            <%= f.radio_button :status, status %>
-            <%= t(status, :scope => "post.status") %>
-          </label>
-        <% end %>
+<div class="col-md-8 col-md-offset-2">
+  <%= simple_form_for [:account, @post] do |f| %>
+    <div class="row account-posts-form">
+      <div class="col-md-10">
+        <%= f.input :title %>
+        <%= f.input :description, as: :ckeditor %>
       </div>
-      <br><br>
-      <%= f.submit "Save", class: "btn btn-default" %>
+
+      <div class="col-md-2 fixed-button">
+        <%= f.label :category %>
+        <%= f.select :category_id, current_user.blog.categories.all.map{ |c| [c.name, c.id] }, {}, :class => "form-control" %>
+        <br>
+        <%= f.label :status, label: "Change Status:" %>
+        <br>
+        <div class="btn-group" data-toggle="buttons">
+          <% Post::STATUS.each do |status| %>
+            <label class="btn btn-default btn-xs <%= (status == f.object.status)? 'active' : '' %>">
+              <%= f.radio_button :status, status %>
+              <%= t(status, :scope => "post.status") %>
+            </label>
+          <% end %>
+        </div>
+        <br><br>
+        <%= f.submit "Save", class: "btn btn-default" %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

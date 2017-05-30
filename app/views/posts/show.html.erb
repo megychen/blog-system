@@ -1,17 +1,18 @@
-<div class="pull-right">
-  <%= social_share_button_tag(@post.title) %>
+<div class="post-lists">
+
+  <div class="meta"><%= @post.created_at.strftime("%Y-%m-%d") %> | Posted by <%= @post.user.user_name %></div>
+  <h2 class="entry-title"><%= link_to(@post.title, post_path(@post)) %></h2>
+  <hr>
+  <div class="post-content"><%= sanitize @post.description %></div>
+  <br>
+  <div class="pull-right">
+    <%= social_share_button_tag(@post.title) %>
+  </div>
+  <p class="pull-left">
+    <span id="post-like-<%= @post.id %>">
+      <%= render :partial => "like", :locals => { :post => @post } %>
+    </span>
+  </p>
+
+  <%- disqus_thread %>
 </div>
-
-<h4><%= @post.title %></h4>
-<hr>
-<p><%= sanitize @post.description %></p>
-<br>
-<i class="fa fa-clock-o" aria-hidden="true"></i> <%= @post.created_at.strftime("%Y-%m-%d") %>
-<p class="pull-right">
-  <span id="post-like-<%= @post.id %>">
-    <%= render :partial => "like", :locals => { :post => @post } %>
-  </span>
-  <%= link_to(content_tag(:i, " Back", class: "fa fa-arrow-left"), url_for(:back)) %>
-</p>
-
-<%- disqus_thread %>
