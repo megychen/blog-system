@@ -2,7 +2,7 @@
   <div class="navbar-header">
     <% if params[:controller] == "dashboard" or params[:controller] == "account/blogs" or params[:controller] == "account/posts" or params[:controller] == "account/categories" %>
       <a class="navbar-brand" href="/dashboard"> Blogger | <%= current_user.blog.title %> </a>
-    <% else %>
+    <% else%>
       <a class="navbar-brand" href="/"> Blogger </a>
     <% end %>
   </div>
@@ -19,6 +19,7 @@
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
+              <li> <%= link_to("后台管理", admin_path) %> </li>
               <li> <%= link_to("编辑信息", edit_user_registration_path(current_user)) %> </li>
               <li> <%= link_to("退出", destroy_user_session_path, method: :delete) %> </li>
             </ul>
