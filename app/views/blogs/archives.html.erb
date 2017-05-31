@@ -1,0 +1,23 @@
+<div class="post-lists">
+  <div class="pull-right">
+    <span class="dropdown">
+      <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Categories
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <% @blog.categories.each do |category| %>
+          <li> <%= link_to(category.name, archives_blog_path(@blog, category: category.name)) %> </li>
+        <% end %>
+      </ul>
+    </span>
+  </div>
+  <h3>Blog Archives</h3>
+  <div class="entry">
+    <% @posts.each do |post| %>
+      <div class="entry-list">
+        <%= post.created_at.strftime("%Y-%m-%d") %>
+        <%= link_to(post.title, post_path(post), style: "font-size:16px; color:#57b8cc;") %>
+      </div>
+    <% end %>
+  </div>
+</div>

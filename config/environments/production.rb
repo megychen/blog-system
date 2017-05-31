@@ -83,4 +83,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.assets.compile = true
+
+  config.assets.precompile += Ckeditor.assets
+  config.assets.precompile += %w(ckeditor/* )
+  config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 end

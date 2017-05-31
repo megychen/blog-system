@@ -1,0 +1,6 @@
+<div>
+  <%= simple_form_for [:account, @blog, @category] do |f| %>
+    <%= f.input :name, label: "", placeholder: "Category Name" %>
+    <%= f.submit "Add", class: "btn btn-info" %>
+  <% end %>
+</div>

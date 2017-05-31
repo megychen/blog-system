@@ -1,0 +1,48 @@
+<div class="dashboard-index">
+  <div class="btn-group col-md-4">
+    <span>
+      <%= link_to(content_tag(:span, " New Post", :class => "fa fa-plus"), new_account_post_path, class: "btn btn-default btn-xs") %>
+    </span>
+
+    <span class="dropdown">
+      <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Filter
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <% current_user.blog.categories.each do |category| %>
+          <li> <%= link_to(category.name, dashboard_path(category: category.name)) %> </li>
+        <% end %>
+      </ul>
+    </span>
+
+    <span> <%= link_to("All Posts", dashboard_path, class: "btn btn-default btn-xs") %> </span>
+
+  </div>
+
+  <div class="search-bar col-md-4">
+    <%= form_tag dashboard_search_path, :method => :get do %>
+      <div class="input-group">
+        <input type="text" name="q" class="form-control" value="<%= params[:q] %>" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-default">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+
+
+  <div class="btn-group pull-right">
+    <%= link_to("Blog Settings", edit_account_blog_path(current_user.blog), class: "btn btn-default btn-xs") %>
+    <%= link_to("Categories", account_blog_categories_path(current_user.blog), class: "btn btn-default btn-xs") %>
+    <%= link_to("Visit Blog", blog_path(current_user.blog), class: "btn btn-default btn-xs", target: :_blank) %>
+  </div>
+
+  </br></br>
+
+  <table class="table table-hover account-posts-content">
+    <%= render :partial => "post_item", :collection => @posts, :as => :post %>
+  </table>
+</div>
