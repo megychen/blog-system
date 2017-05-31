@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   validates :title, presence: true
   belongs_to :user
-  belongs_to :blog
+  belongs_to :blog, counter_cache: true
   belongs_to :category, optional: true, counter_cache: true
 
   acts_as_votable

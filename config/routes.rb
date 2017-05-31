@@ -18,6 +18,12 @@ Rails.application.routes.draw do
   get "/dashboard/search" => "dashboard#search", :as => :dashboard_search
   get "/admin"  => "admin#index", :as => :admin
 
+  namespace :admin do
+    resources :blogs
+    resources :posts
+    resources :users
+  end
+
   namespace :account do
     resources :posts do
       member do

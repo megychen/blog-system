@@ -1,0 +1,27 @@
+<h2>Blog Lists</h2>
+
+<table class="table table-hover">
+  <% @blogs.each do |blog| %>
+    <tr>
+      <th>Title</th>
+      <th>Posts</th>
+      <th>Author Name</th>
+      <th>Author Email</th>
+      <th>Option</th>
+    </tr>
+    <tr>
+      <td><%= link_to(blog.title, admin_blog_path(blog)) %></td>
+      <td><%= blog.posts.count %></td>
+      <td><%= blog.user.user_name %></td>
+      <td><%= blog.user.email %></td>
+      <td>
+        <%= link_to edit_admin_blog_path(blog) do %>
+          <i class="fa fa-pencil-square-o fa-lg" style="color:orange;"></i> |
+        <% end %>
+        <%= link_to admin_blog_path(blog), data: {confirm: "Are you sure?"}, method: :delete do %>
+          <i class="fa fa-trash-o fa-lg" style="color:red;"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

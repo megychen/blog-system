@@ -3,8 +3,6 @@ class AdminController < ActionController::Base
   before_action :authenticate_user!
   before_action :require_admin!
 
-  layout "admin"
-
   protected
 
   def require_admin!
