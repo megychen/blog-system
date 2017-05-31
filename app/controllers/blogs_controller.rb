@@ -1,9 +1,6 @@
 class BlogsController < ApplicationController
   before_action :find_blog, :except => [:index]
   layout "blog", :except => [:index]
-  def index
-    @blogs = Blog.includes(:posts)
-  end
 
   def show
     @posts = @blog.posts.where(:status => "public").recent.paginate(:page => params[:page], :per_page => 5)

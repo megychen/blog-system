@@ -16,7 +16,8 @@ class Account::CategoriesController < ApplicationController
     if @category.save
       redirect_to account_blog_categories_path
     else
-      redirect_to :back
+      flash[:warning] = "Add category failed"
+      redirect_to account_blog_categories_path
     end
   end
 
@@ -43,7 +44,7 @@ class Account::CategoriesController < ApplicationController
   end
 
   def find_account_blog
-    @blog = current_user.blog
+    @blog = Blog.find(params[:blog_id])
   end
 
   def find_account_blog_category
@@ -52,7 +53,7 @@ class Account::CategoriesController < ApplicationController
 
   def checkout_account_blog_permission
     unless current_user == @category.blog.user
-      redirect_to account_blog_categories_path, notice: "You have no permission"
+      redirect_to dashboard_path, notice: "You have no permission"
     end
   end
 end

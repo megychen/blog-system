@@ -14,7 +14,7 @@ class Account::PostsController < ApplicationController
     @post.user = current_user
     @post.blog = current_user.blog
 
-    if @post.save!
+    if @post.save
       redirect_to dashboard_path
     else
       render :new
@@ -38,17 +38,17 @@ class Account::PostsController < ApplicationController
 
   def draft
     @post.draft!
-    redirect_to :back
+    redirect_to dashboard_path
   end
 
   def publish
     @post.publish!
-    redirect_to :back
+    redirect_to dashboard_path
   end
 
   def hide
     @post.hide!
-    redirect_to :back
+    redirect_to dashboard_path
   end
 
   private

@@ -24,9 +24,6 @@ Rails.application.routes.draw do
         post :publish
         post :hide
       end
-      collection do
-        post :bulk_delete
-      end
     end
     resources :blogs do
       resources :categories
