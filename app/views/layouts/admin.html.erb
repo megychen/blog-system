@@ -14,9 +14,9 @@
         <%= render "common/navbar" %>
         <%= render "common/flashes" %>
         <div class="col-md-2">
-          <p><%= link_to("Manage Blog", "#", :class => "btn btn-default") %></p>
-          <p><%= link_to("Manage Post", "#", :class => "btn btn-default") %></p>
-          <p><%= link_to("Manage User", "#", :class => "btn btn-default") %></p>
+          <p><%= link_to("Manage Blog", admin_blogs_path, :class => "btn btn-default") %></p>
+          <p><%= link_to("Manage Post", admin_posts_path, :class => "btn btn-default") %></p>
+          <p><%= link_to("Manage User", admin_users_path, :class => "btn btn-default") %></p>
         </div>
         <div class="col-md-10">
           <%= yield %>
