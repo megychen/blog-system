@@ -53,6 +53,9 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry'
   gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'rails-controller-testing'
 end
 
 group :development do
