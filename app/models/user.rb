@@ -12,6 +12,6 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   def generate_blog_title
-    Blog.create(title: self.user_name + "'s blog", user_id: self.id)
+    Blog.create(title: self.user_name + "'s blog", user_id: self.id, description: 'Welcome to Blogger')
   end
 end
