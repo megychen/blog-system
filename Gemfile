@@ -48,6 +48,7 @@ gem 'social-share-button'
 gem 'acts_as_votable'
 gem 'mailboxer'
 gem 'chosen-rails'
+gem 'impressionist'
 
 
 group :development, :test do

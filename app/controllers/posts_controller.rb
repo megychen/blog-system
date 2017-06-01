@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, :only => [:upvote]
+  impressionist :actions=>[:show]
   layout "blog"
 
   def show

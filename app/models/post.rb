@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   belongs_to :category, optional: true, counter_cache: true
 
   acts_as_votable
+  is_impressionable
 
   scope :recent, -> { order("created_at DESC") }
 
