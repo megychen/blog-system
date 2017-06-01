@@ -6,9 +6,6 @@ class Admin::PostsController < AdminController
     @posts = Post.all
   end
 
-  def show
-  end
-
   def edit
   end
 
