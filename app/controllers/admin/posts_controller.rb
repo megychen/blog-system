@@ -1,6 +1,4 @@
 class Admin::PostsController < AdminController
-  before_action :authenticate_user!
-  before_action :require_admin!
   before_action :find_admin_post, :except => [:index]
   layout "admin"
 

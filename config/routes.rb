@@ -21,7 +21,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :blogs
     resources :posts
-    resources :users
+    resources :users do
+      member do
+        post :set_admin
+      end
+    end
   end
 
   namespace :account do

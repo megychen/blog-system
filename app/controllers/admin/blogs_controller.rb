@@ -1,6 +1,4 @@
 class Admin::BlogsController < AdminController
-  before_action :authenticate_user!
-  before_action :require_admin!
   before_action :find_admin_blog, :except => [:index]
   layout "admin"
 
