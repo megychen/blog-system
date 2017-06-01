@@ -2,7 +2,6 @@
 
 <table class="table table-hover">
   <tr>
-    <th></th>
     <th>Email</th>
     <th>Blog</th>
     <th>User Name</th>
@@ -25,7 +24,10 @@
         <% end %>
 
         <%= link_to admin_user_path(user), data: {confirm: "Are you sure?"}, method: :delete do %>
-          <i class="fa fa-trash-o fa-lg" style="color:red;"></i>
+          <i class="fa fa-trash-o fa-lg" style="color:red;"></i> |
+        <% end %>
+        <% unless current_user == user %>
+          <%= link_to 'Send message', new_message_path(to: user.id), class: 'btn btn-default btn-xs' %>
         <% end %>
       </td>
     <tr>

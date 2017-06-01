@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :user_name, uniqueness: true
 
   mount_uploader :avatar, AvatarUploader
+  acts_as_messageable
 
   def generate_blog_title
     Blog.create(title: self.user_name + "'s blog", user_id: self.id, description: 'Welcome to Blogger')
@@ -17,5 +18,10 @@ class User < ApplicationRecord
 
   def admin!
     self.role = "admin"
+    self.save
+  end
+
+  def mailboxer_email(object)
+    email
   end
 end
