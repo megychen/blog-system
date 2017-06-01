@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   get "/dashboard"  => "dashboard#index", :as => :dashboard
   get "/dashboard/search" => "dashboard#search", :as => :dashboard_search
-  get "/admin"  => "admin#index", :as => :admin
+  get "/more_posts"  => "welcome#more_posts", :as => :more_posts
 
   namespace :admin do
     resources :blogs

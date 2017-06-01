@@ -1,6 +1,4 @@
-<h3 class="text-center"> Hello, Welcome to Blogger! </h3>
-
-<p class="btn btn-warning btn-xs" style="margin-bottom: 20px;">Hot Posts</p>
+<h2 class="text-center">Post Lists</h2>
 
 <table class="table table-hover">
   <% @posts.each do |post| %>
@@ -12,5 +10,3 @@
     </tr>
   <% end %>
 </table>
-
-<p class="text-center" style="margin-top: 30px;"><%= link_to("More Posts", more_posts_path, :class => "btn btn-default btn-sm" ) %></p>
