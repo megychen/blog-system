@@ -1,24 +1,10 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[live demo](https://pacific-lowlands-70269.herokuapp.com/)
+<br>
+[已创建的blog](https://pacific-lowlands-70269.herokuapp.com/blogs/1-megychen's%20blog)
+<br>
+账号：megy.chen203@gmail.com 12345678
 
-Things you may want to cover:
+本地测试运行：`rails spec`
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
