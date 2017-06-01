@@ -1,0 +1,27 @@
+<div class="col-md-8 col-md-offset-2">
+  <h2>我的站内信</h2>
+
+  <div class="pull-right">
+    <% if params[:box] == 'trash' %>
+      <p><%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <%= mailbox_section 'inbox', params[:box] %>
+    </div>
+    <div class="col-md-4">
+      <%= mailbox_section 'sent', params[:box] %>
+    </div>
+    <div class="col-sm-4">
+      <%= mailbox_section 'trash', params[:box] %>
+    </div>
+  </div>
+  <br></br>
+  <ul class="list-group">
+    <%= render partial: 'conversations/conversation', collection: @conversations %>
+  </ul>
+
+  <p><%= link_to 'Start conversation', new_message_path, class: 'btn btn-xs btn-info' %></p>
+</div>

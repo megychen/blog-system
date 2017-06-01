@@ -19,6 +19,7 @@
   @import "bootstrap";
   @import "font-awesome";
   @import "social-share-button";
+  @import "chosen";
 
   body {
     color: rgba(0, 0, 0, 0.7);
@@ -48,7 +49,7 @@
 
   .search-bar {
     margin-top: -5px;
-    width: 240px;
+    width: 200px;
     display: inline-block;
     .form-control  {
       padding: 2px 2px;
@@ -202,4 +203,8 @@
     position: absolute;
     top: 40;
     right: 0;
+  }
+
+  .messages {
+    max-height: 400px;overflow-y: auto;margin-bottom: 1em;margin-top: 1em;
   }

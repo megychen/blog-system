@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BlogProject Dashboard</title>
+    <title>BlogProject Admin Panel</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,7 +13,14 @@
       <div class="row">
         <%= render "common/navbar" %>
         <%= render "common/flashes" %>
-        <%= yield %>
+        <div class="col-md-2">
+          <p><%= link_to("Manage Blog", admin_blogs_path, :class => "btn btn-default") %></p>
+          <p><%= link_to("Manage Post", admin_posts_path, :class => "btn btn-default") %></p>
+          <p><%= link_to("Manage User", admin_users_path, :class => "btn btn-default") %></p>
+        </div>
+        <div class="col-md-10">
+          <%= yield %>
+        </div>
       </div>
     </div>
     <%= render "common/footer" %>

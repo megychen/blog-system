@@ -1,6 +1,7 @@
 <tr id="post-<%= post.id %>">
   <td><%= render_post_status(post) %>  <%= link_to(post.title, edit_account_post_path(post)) %></td>
   <td><%= post.get_upvotes.size %> likers</td>
+  <td><%= post.impressionist_count(:filter=>:session_hash)%> viewers</td>
   <td><%= post.created_at.strftime("%Y-%m-%d %I:%M %p") %></td>
   <td class="dropdown">
     <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Options

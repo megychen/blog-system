@@ -2,7 +2,7 @@
   <div class="navbar-header">
     <% if params[:controller] == "dashboard" or params[:controller] == "account/blogs" or params[:controller] == "account/posts" or params[:controller] == "account/categories" %>
       <a class="navbar-brand" href="/dashboard"> Blogger | <%= current_user.blog.title %> </a>
-    <% else %>
+    <% else%>
       <a class="navbar-brand" href="/"> Blogger </a>
     <% end %>
   </div>
@@ -13,12 +13,24 @@
           <li><%= link_to("注册", new_user_registration_path) %> </li>
           <li><%= link_to("登录", new_user_session_path) %></li>
         <% else %>
+          <li>
+            <%= link_to conversations_path do %>
+              <i class="fa fa-envelope fa-lg" style="margin-top:7px;"></i>
+              <% if current_user %>
+                <label class="label label-warning"><%= current_user.unread_inbox_count %></label>
+              <% end %>
+            <% end %>
+          </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= image_tag(current_user.avatar_url, size: "25x25", class: "img-circle") if current_user.avatar? %> <%= current_user.user_name %>
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
+              <% if current_user.role == "admin" %>
+                <li> <%= link_to("后台管理", admin_blogs_path) %> </li>
+              <% end %>
+              <li> <%= link_to("博客管理", dashboard_path) %> </li>
               <li> <%= link_to("编辑信息", edit_user_registration_path(current_user)) %> </li>
               <li> <%= link_to("退出", destroy_user_session_path, method: :delete) %> </li>
             </ul>

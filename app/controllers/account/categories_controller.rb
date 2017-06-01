@@ -3,7 +3,7 @@ class Account::CategoriesController < ApplicationController
   before_action :find_account_blog
   before_action :find_account_blog_category, :except => [:index, :create]
   before_action :checkout_account_blog_permission, :except => [:index, :create]
-  layout "admin"
+  layout "account"
 
   def index
     @category = Category.new

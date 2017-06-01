@@ -1,10 +1,11 @@
 <div class="post-lists">
 
-  <div class="meta"><%= @post.created_at.strftime("%Y-%m-%d") %> | Posted by <%= @post.user.user_name %></div>
+  <div class="meta"><%= @post.created_at.strftime("%Y-%m-%d") %> | Posted by <%= @post.user.user_name %> | <%= @post.impressionist_count(:filter=>:session_hash)%> 人浏览</div>
   <h2 class="entry-title"><%= link_to(@post.title, post_path(@post)) %></h2>
   <hr>
   <div class="post-content"><%= sanitize @post.description %></div>
   <br>
+
   <div class="pull-right">
     <%= social_share_button_tag(@post.title) %>
   </div>

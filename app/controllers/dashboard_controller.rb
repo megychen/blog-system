@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   before_action :authenticate_user!
   before_action :validate_search_key, only: [:search]
-  layout "admin"
+  layout "account"
 
   def index
     if params[:category].present?

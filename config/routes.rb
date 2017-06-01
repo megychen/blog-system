@@ -14,8 +14,31 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :reply
+      post :restore
+      post :mark_as_read
+    end
+    collection do
+      delete :empty_trash
+    end
+  end
+  resources :messages, only: [:new, :create]
+
   get "/dashboard"  => "dashboard#index", :as => :dashboard
   get "/dashboard/search" => "dashboard#search", :as => :dashboard_search
+  get "/admin"  => "admin#index", :as => :admin
+
+  namespace :admin do
+    resources :blogs
+    resources :posts
+    resources :users do
+      member do
+        post :set_admin
+      end
+    end
+  end
 
   namespace :account do
     resources :posts do
