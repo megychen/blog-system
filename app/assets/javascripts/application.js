@@ -24,5 +24,4 @@
 //= require simditor-markdown
 //= require simditor-mark
 //= require simditor-dropzone
-//= require simditor-autosave
 //= require_tree .

@@ -253,7 +253,6 @@ DEPENDENCIES
   capybara
   carrierwave
   chosen-rails
-  coderay
   coffee-rails (~> 4.2)
   devise
   disqus_rails

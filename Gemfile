@@ -50,7 +50,6 @@ gem 'chosen-rails'
 gem 'impressionist'
 gem 'simditor'
 gem 'mini_magick'
-gem 'coderay'   #代码高亮
 
 
 
