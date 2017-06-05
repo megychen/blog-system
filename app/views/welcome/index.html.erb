@@ -7,7 +7,6 @@
     <tr>
       <td><%= link_to(post.title, post_path(post)) %> (<small><%= post.impressionist_count(:filter=>:session_hash)%>人浏览</small>)</td>
       <td>Posted by <%= post.user.user_name %></td>
-      <td>By <%= post.user.user_name %></td>
       <td><%= post.created_at.strftime("%Y-%m-%d") %></td>
     </tr>
   <% end %>

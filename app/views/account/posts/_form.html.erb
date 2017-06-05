@@ -1,14 +1,14 @@
 <div class="col-md-10 col-md-offset-1">
   <%= simple_form_for [:account, @post] do |f| %>
     <div class="row account-posts-form">
-      <div class="col-md-10">
+      <div class="col-md-9">
         <%= f.input :title %>
         <%= f.input :description %>
       </div>
 
-      <div class="col-md-2 fixed-button">
+      <div class="col-md-3 fixed-button">
         <%= f.label :category %>
-        <%= f.select :category_id, current_user.blog.categories.all.map{ |c| [c.name, c.id] }, {}, :class => "form-control" %>
+        <%= f.select :category_id, current_user.blog.categories.all.map{ |c| [c.name, c.id] }, {:include_blank => true}, :class => "form-control" %>
         <br>
         <%= f.label :status, label: "Change Status:" %>
         <br>
