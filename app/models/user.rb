@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :user_name, uniqueness: true
   has_many :photos
 
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, ImageUploader
   acts_as_messageable
 
   def generate_blog_title

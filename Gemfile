@@ -50,6 +50,9 @@ gem 'chosen-rails'
 gem 'impressionist'
 gem 'simditor'
 gem 'mini_magick'
+gem 'carrierwave-qiniu'
+gem 'qiniu-rs'
+gem 'figaro'
 
 
 
