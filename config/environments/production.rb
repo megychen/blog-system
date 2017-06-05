@@ -86,10 +86,6 @@ Rails.application.configure do
 
   config.assets.compile = true
 
-  config.assets.precompile += Ckeditor.assets
-  config.assets.precompile += %w(ckeditor/* )
-  config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
-
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
