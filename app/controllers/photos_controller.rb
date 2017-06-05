@@ -8,7 +8,7 @@ class PhotosController < ApplicationController
     success = true
     msg = '上传成功'
     file_path = ''
-    if @photo.save
+    if @photo.save!
       success=true
       render json: { :success=> success, :msg=>msg, :file_path=> @photo.image.url }
     else
