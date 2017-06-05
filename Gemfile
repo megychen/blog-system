@@ -41,7 +41,6 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'font-awesome-rails'
 gem 'ransack'
-gem 'ckeditor'
 gem 'will_paginate-bootstrap'
 gem 'disqus_rails'
 gem 'social-share-button'
@@ -49,6 +48,10 @@ gem 'acts_as_votable'
 gem 'mailboxer'
 gem 'chosen-rails'
 gem 'impressionist'
+gem 'simditor'
+gem 'mini_magick'
+gem 'coderay'   #代码高亮
+
 
 
 group :development, :test do

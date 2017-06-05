@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get "/dashboard"  => "dashboard#index", :as => :dashboard
   get "/dashboard/search" => "dashboard#search", :as => :dashboard_search
   get "/more_posts"  => "welcome#more_posts", :as => :more_posts
+  post 'photos' => 'photos#upload'
 
   namespace :admin do
     resources :blogs

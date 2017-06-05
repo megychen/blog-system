@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_one :blog, dependent: :destroy
   has_many :posts, dependent: :destroy
   validates :user_name, uniqueness: true
+  has_many :photos
 
   mount_uploader :avatar, AvatarUploader
   acts_as_messageable

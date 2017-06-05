@@ -3,7 +3,7 @@
     <div class="row account-posts-form">
       <div class="col-md-10">
         <%= f.input :title %>
-        <%= f.input :description, as: :ckeditor %>
+        <%= f.input :description, :type=> 'hidden' %>
       </div>
 
       <div class="col-md-2 fixed-button">
@@ -26,3 +26,7 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  var editor = new Simditor({ textarea: $('#post_description'), autosave: 'editor-content', toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'color', '|', 'ol', 'ul', '|', 'markdown', 'blockquote', 'code', 'table', 'link','image', '|','hr', 'indent', 'outdent', 'alignment', '|', 'marked', 'mark', 'emoji'], emoji: {imagePath: 'images/emoji/'},  placeholder: '这里输入文字...', pasteImage: true, fileKey: 'file', upload: { url: '/photos', params: null, connectionCount: 3, leaveConfirm: 'Uploading is in progress, are you sure to leave this page?' } });
+</script>

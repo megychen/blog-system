@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  *= require font-awesome
+ *= require simditor
+ *= require simditor-markdown
  */
 
   @import "bootstrap-sprockets";
@@ -20,6 +22,7 @@
   @import "font-awesome";
   @import "social-share-button";
   @import "chosen";
+
 
   body {
     color: rgba(0, 0, 0, 0.7);
