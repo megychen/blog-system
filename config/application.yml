@@ -1,0 +1,11 @@
+production:
+  qiniu_access_key: HP-LV6OOTOWwmA8zPW1juqOo3XKEVjINZjdpz-IX  # 你的 qiniu AccessKey
+  qiniu_secret_key: 5Qg3yr9QLM5Ohib1fyBrn_qfhTz9J_BvRf3EMq7z  # 你的 qiniu SecretKey
+  qiniu_bucket: blog-system  # 你的 qiniu bucket
+  qiniu_bucket_domain: or2ttx8h6.bkt.clouddn.com  # 你的 qiniu bucket domain
+
+development:
+  qiniu_access_key: HP-LV6OOTOWwmA8zPW1juqOo3XKEVjINZjdpz-IX  # 你的 qiniu AccessKey
+  qiniu_secret_key: 5Qg3yr9QLM5Ohib1fyBrn_qfhTz9J_BvRf3EMq7z  # 你的 qiniu SecretKey
+  qiniu_bucket: blog-system  # 你的 qiniu bucket
+  qiniu_bucket_domain: or2ttx8h6.bkt.clouddn.com  # 你的 qiniu bucket domain
